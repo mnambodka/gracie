@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect, BrowserRouter, Route, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { FaExclamationCircle } from 'react-icons/fa'
-import MyBaseFormular from '../page/BaseFormular'
+
 
 class MyRouter extends React.Component {
     state = {
@@ -13,7 +13,7 @@ class MyRouter extends React.Component {
         this.setState(() => ({
             toFormular: true
         }));
-        const url = 'baseFormular';
+        const url = 'bonz';
         window.open(url);
       }
 

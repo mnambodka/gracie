@@ -2,11 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 import MyPageRouter from '../component/MyRouter'
 import logo from './ukrlp_background.png';
-/**
- * Import all page components here
- */
-
-import Formular from '../page/WelcomePage';
+import MainAppPage from '../page/MainAppPage';
 
 const MainPage = (props: any) => {
   return (<main>
@@ -25,6 +21,6 @@ export default () => {
   return (
     <div>
         <Route path="/" exact component={MainPage} />
-        <Route path="/baseFormular" component={Formular} />
+        <Route path="/bonz" component={MainAppPage} />
     </div>);
 };
