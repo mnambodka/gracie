@@ -1,0 +1,8 @@
+.buttonStyle {
+    position: absolute;
+    margin: 23px 1040px;
+    color: white;
+    background-color: transparent;
+    width: 130px;
+    border-color: transparent;
+}
