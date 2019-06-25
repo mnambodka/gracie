@@ -35,7 +35,7 @@ const App: React.FC = () => {
     <div>
       {isLoading ? getLoadingComponent(isLoading) : getApplicationComponent(errorHandler)}
 
-      <Dialog
+      {/* <Dialog
         open={errorMessages.length > 0}
         onClose={event => setErrorMessages([])}
         aria-labelledby="alert-dialog-title"
@@ -53,7 +53,7 @@ const App: React.FC = () => {
             Close
                     </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </div>
 
   )

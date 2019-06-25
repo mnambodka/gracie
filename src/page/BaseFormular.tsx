@@ -12,7 +12,7 @@ render () {
                     <text>Hallo</text>
                 </div>
             </main>
-        </div >   
+        </div>   
     )
   }
 }

@@ -4,12 +4,6 @@ import PropTypes from 'prop-types'
 import { FaExclamationCircle } from 'react-icons/fa'
 import MyBaseFormular from '../page/BaseFormular'
 
-const routes = (
-    <Route >
-        <Route exact path="/baseFormular" component={MyBaseFormular}/>
-    </Route >
-)
-
 class MyRouter extends React.Component {
     state = {
         toFormular: false,
@@ -20,25 +14,10 @@ class MyRouter extends React.Component {
             toFormular: true
         }));
         const url = 'baseFormular';
-        window.open(url, '_blank');
+        window.open(url);
       }
 
-render () {
-    // if (this.state.toFormular === true) {
-    //     return (
-    //         <BrowserRouter>
-    //         <div>
-    //             <main>
-    //             <div>
-    //                 <Redirect to='/baseFormular' />
-    //                 <text>Hello</text>
-    //             </div>
-    //             </main>
-    //         </div >
-    //     </BrowserRouter >            
-    //     )
-    // }
-  
+render () {  
     return (
        <div>
         <button className="buttonStyle" onClick={this.handleSubmit}> Anlass melden  <FaExclamationCircle/></button>

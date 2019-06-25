@@ -2,6 +2,7 @@ import React, { useState, Component} from 'react'
 
 import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
 import MyPageRouter from '../component/MyRouter'
+import Routes from '../component/Routes'
 
 import Header from './Header'
 import { useTheme } from '@material-ui/core/styles'
@@ -21,6 +22,7 @@ const Navigator = (props: PageProps) => {
     return (
         <BrowserRouter>
             <div>
+                <Routes/>
                 <main>
                     <div>
                     <MyPageRouter/>
