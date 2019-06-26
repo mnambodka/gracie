@@ -2,7 +2,7 @@ import React from "react"
 import { Form, TextArea } from 'semantic-ui-react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Grow, Link, Container } from "@material-ui/core"
-import logo from './backgroundUKRLP.png';
+// import logo from './backgroundUKRLP.png';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { display } from "@material-ui/system";
@@ -10,6 +10,7 @@ import { display } from "@material-ui/system";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
+import logo from './head_menu.png';
 
 
 export const URL: string = "/bonz"
@@ -22,7 +23,7 @@ export interface MainAppPageProps {
 
 const useStyles = makeStyles(theme => ({
     root: {
-        background: 'linear-gradient(0deg, #FE6B8B 30%, #FF8E53 90%)',
+        background: 'linear-gradient(0deg, #73C2FB 20%, #1034A6 50%)',
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
@@ -63,14 +64,28 @@ const useStyles = makeStyles(theme => ({
     </Form>
   )
 
+  const HeadPicture = (props: any) => {
+    return (
+      <div>
+        <img width="100%" src={logo} alt="Logo"/>
+        </div>
+    )
+  }
+
 const MainAppPage = (props: MainAppPageProps) => {
 const classes = useStyles();
 return (
     <div className={classes.root}>
       <CssBaseline />
+      <div>
+        <img width="100%" src={logo} alt="Logo"/>
+        </div>
+      <Container component="head" maxWidth="sm">
+        <HeadPicture></HeadPicture>
+      </Container>
       <Container component="main" className={classes.main} maxWidth="sm">
         <Typography variant="h2" component="h1" gutterBottom>
-          Sticky footer
+          Anlas Melden
         </Typography>
      
           <TextAreaComplain></TextAreaComplain>
@@ -81,12 +96,12 @@ return (
         </Typography>
         <Typography variant="body1">Sticky footer placeholder.</Typography>
       </Container>
-      <footer className={classes.footer}>
+      {/* <footer className={classes.footer}>
         <Container maxWidth="sm">
           <Typography variant="body1">My sticky footer can be found here.</Typography>
           <MadeWithLove />
         </Container>
-      </footer>
+      </footer> */}
     </div>
   );
 

@@ -3,7 +3,7 @@ import MyPageRouter from '../component/MyRouter'
 import logo from './hackaton1.png';
 import FeedbackForm from '../component/FeedbackForm'
 import PropTypes from 'prop-types';
-import Formular from '../page/WelcomePage';
+import MainAppPage from '../page/MainAppPage';
 import App from '../App';
 import { Redirect, BrowserRouter, Route, withRouter } from 'react-router-dom'
  
