@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 import MyPageRouter from '../component/MyRouter'
-import logo from './ukrlp_background.png';
+import logo from './hackaton1.png';
 /**
  * Import all page components here
  */

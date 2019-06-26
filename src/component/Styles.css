@@ -1,8 +1,22 @@
 .buttonStyle {
     position: absolute;
-    margin: 23px 1040px;
+    margin-top: 35px;
+    margin-left: 800px;
     color: white;
     background-color: transparent;
-    width: 130px;
+    width: 140px;
     border-color: transparent;
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+
+.buttonIconStyle {
+    
+}
+
+.buttonTextStyle {
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    line-height: 1.428571429;
+    color: #333;
 }

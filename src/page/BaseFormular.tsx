@@ -6,13 +6,9 @@ class BaseFormular extends React.Component {
 
 render () {
     return (
-        <div>
-            <main>
                 <div>
                     <text>Hallo</text>
-                </div>
-            </main>
-        </div>   
+                </div>   
     )
   }
 }

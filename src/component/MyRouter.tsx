@@ -3,6 +3,9 @@ import { Redirect, BrowserRouter, Route, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { FaExclamationCircle } from 'react-icons/fa'
 import MyBaseFormular from '../page/BaseFormular'
+import Routes from '../component/Routes'
+
+
 
 class MyRouter extends React.Component {
     state = {
