@@ -3,6 +3,8 @@ import './App.css';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@material-ui/core';
 import { BarLoader as Loader } from 'react-spinners'
 import Navigator from './component/Navigator'
+import FeedbackForm from './component/FeedbackForm';
+import PropTypes from 'prop-types';
 
 const serviceUrl = `http://localhost:3082`
 
@@ -58,5 +60,9 @@ const App: React.FC = () => {
 
   )
 }
+
+App.propTypes = {
+  env: PropTypes.object.isRequired
+};
 
 export default App;
