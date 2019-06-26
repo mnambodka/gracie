@@ -12,7 +12,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import logo from './head_menu.png';
 import App from '../App';
-import * as emailjs from 'emailjs-com'
+import * as emailjs from 'emailjs-com';
+import ImageUploader from 'react-images-upload';
 
 export const URL: string = "/bonz"
 
@@ -23,6 +24,7 @@ export interface MainAppPageProps {
 }
 
 var message: string = ""
+var picture: []
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -61,12 +63,22 @@ const useStyles = makeStyles(theme => ({
     );
   }
 
+  function _arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
+
   function handleSubmit() {
     var templateParams = {
         from_name: 'danka',
         to_name: 'danielka',
         subject:'oursubject',
-        message_html: message
+        message_html: message  
     }
       emailjs.send('mailgun', 'template_RGafnIkF', templateParams, 'user_w9GAf3tp8aE7ephxoCIu4');
   }
@@ -75,10 +87,13 @@ const useStyles = makeStyles(theme => ({
     message = $event.target.value;
   }
 
+  function handleOnImageLoad($picture) {
+    picture = $picture;
+  }
+
   const TextAreaComplain = () => (
     <Form>
       <TextArea placeholder='Tell us more' className="textareafield" onChange={(event) => handleOnChange(event)} />
-      <button onClick={handleSubmit}>Submit</button>
     </Form>
   )
 
@@ -92,6 +107,11 @@ const useStyles = makeStyles(theme => ({
 
 const MainAppPage = (props: MainAppPageProps) => {
 const classes = useStyles();
+
+var data = picture
+
+const Example = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} />
+
 return (
     <div className={classes.root}>
       <CssBaseline />
@@ -105,19 +125,21 @@ return (
         <Typography variant="h2" component="h1" gutterBottom>
           Anlas Melden
         </Typography>     
-          <TextAreaComplain></TextAreaComplain>          
+          <TextAreaComplain></TextAreaComplain>  
+          <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={(picture) => handleOnImageLoad(picture)}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            />
+            <button onClick={handleSubmit}>Submit</button>   
         <Typography variant="h5" component="h2" gutterBottom>
           {'Pin a footer to the bottom of the viewport.'}
           {'The footer will move as the main element of the page grows.'}
         </Typography>
         <Typography variant="body1">Sticky footer placeholder.</Typography>
       </Container>
-      {/* <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography variant="body1">My sticky footer can be found here.</Typography>
-          <MadeWithLove />
-        </Container>
-      </footer> */}
     </div>
   );
 
