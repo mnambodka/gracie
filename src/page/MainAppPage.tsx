@@ -22,6 +22,8 @@ export interface MainAppPageProps {
     message: string
 }
 
+var message: string = ""
+
 const useStyles = makeStyles(theme => ({
     root: {
         background: 'linear-gradient(0deg, #73C2FB 20%, #1034A6 50%)',
@@ -60,22 +62,23 @@ const useStyles = makeStyles(theme => ({
   }
 
   function handleSubmit() {
-    console.log('click')
     var templateParams = {
         from_name: 'danka',
         to_name: 'danielka',
         subject:'oursubject',
-        message_html:'message'
+        message_html: message
     }
       emailjs.send('mailgun', 'template_RGafnIkF', templateParams, 'user_w9GAf3tp8aE7ephxoCIu4');
   }
 
+  function handleOnChange($event) {
+    message = $event.target.value;
+  }
+
   const TextAreaComplain = () => (
     <Form>
-      <TextArea placeholder='Tell us more' className="textareafield" />
-      <button onClick={handleSubmit}>
-            Submit
-          </button>
+      <TextArea placeholder='Tell us more' className="textareafield" onChange={(event) => handleOnChange(event)} />
+      <button onClick={handleSubmit}>Submit</button>
     </Form>
   )
 
