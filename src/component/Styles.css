@@ -14,4 +14,11 @@
     font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
     line-height: 1.428571429;
-}
+}}
+
+.textareafield {        
+    min-Height: 250px;
+    min-Width: 600px;
+    /* padding: spacing(2); */
+        background-color: white;
+  }
