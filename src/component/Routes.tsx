@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 import MainAppPage from '../page/MainAppPage';
 import App from '../App';
 import { Redirect, BrowserRouter, Route, withRouter } from 'react-router-dom'
- 
-import MainAppPage from '../page/MainAppPage';
 
 const MainPage = (props: any) => {
   return (<main>

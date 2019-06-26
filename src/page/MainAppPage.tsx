@@ -11,7 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import logo from './head_menu.png';
-
+import App from '../App';
+import * as emailjs from 'emailjs-com'
 
 export const URL: string = "/bonz"
 
@@ -58,9 +59,23 @@ const useStyles = makeStyles(theme => ({
     );
   }
 
+  function handleSubmit() {
+    console.log('click')
+    var templateParams = {
+        from_name: 'danka',
+        to_name: 'danielka',
+        subject:'oursubject',
+        message_html:'message'
+    }
+      emailjs.send('mailgun', 'template_RGafnIkF', templateParams, 'user_w9GAf3tp8aE7ephxoCIu4');
+  }
+
   const TextAreaComplain = () => (
     <Form>
       <TextArea placeholder='Tell us more' className="textareafield" />
+      <button onClick={handleSubmit}>
+            Submit
+          </button>
     </Form>
   )
 
@@ -86,10 +101,8 @@ return (
       <Container component="main" className={classes.main} maxWidth="sm">
         <Typography variant="h2" component="h1" gutterBottom>
           Anlas Melden
-        </Typography>
-     
-          <TextAreaComplain></TextAreaComplain>
- 
+        </Typography>     
+          <TextAreaComplain></TextAreaComplain>          
         <Typography variant="h5" component="h2" gutterBottom>
           {'Pin a footer to the bottom of the viewport.'}
           {'The footer will move as the main element of the page grows.'}
@@ -106,9 +119,6 @@ return (
   );
 
 }
-
-
-
 
 export default MainAppPage
 
