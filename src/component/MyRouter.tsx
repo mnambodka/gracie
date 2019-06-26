@@ -24,3 +24,4 @@ render () {
  )
  }
 }
+export default MyRouter
