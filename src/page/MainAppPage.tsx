@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import logo from './head_menu.png';
 import App from '../App';
 import * as emailjs from 'emailjs-com'
+import ComboExample from "../component/ComboComponent";
+import TextField from '@material-ui/core/TextField';
 
 export const URL: string = "/bonz"
 
@@ -32,7 +34,7 @@ const useStyles = makeStyles(theme => ({
         minHeight: '100vh',
       },
       main: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(3),
         marginBottom: theme.spacing(2),
       },
       footer: {
@@ -74,6 +76,27 @@ const useStyles = makeStyles(theme => ({
   function handleOnChange($event) {
     message = $event.target.value;
   }
+  const TitleField = () => (
+  <form className={"title"} noValidate autoComplete="off">
+      <TextField className={"title"}
+        id="filled-full-width"
+        label="Title"
+        fullWidth
+        variant="filled"
+      />
+     </form>
+  )
+
+  const LocationField = () => (
+    <form className={"title"} noValidate autoComplete="off">
+        <TextField className={"title"}
+          id="filled-full-width"
+          label="Location (1st floor, etc.)"
+          fullWidth
+          variant="filled"
+        />
+       </form>
+    )
 
   const TextAreaComplain = () => (
     <Form>
@@ -90,6 +113,7 @@ const useStyles = makeStyles(theme => ({
     )
   }
 
+
 const MainAppPage = (props: MainAppPageProps) => {
 const classes = useStyles();
 return (
@@ -102,10 +126,15 @@ return (
         <HeadPicture></HeadPicture>
       </Container>
       <Container component="main" className={classes.main} maxWidth="sm">
-        <Typography variant="h2" component="h1" gutterBottom>
+        <Typography variant="h3" component="h3" gutterBottom>
           Anlas Melden
-        </Typography>     
-          <TextAreaComplain></TextAreaComplain>          
+        </Typography>
+      
+          <ComboExample/>
+          <TitleField/>
+          <LocationField/>
+          <TextAreaComplain/>
+ 
         <Typography variant="h5" component="h2" gutterBottom>
           {'Pin a footer to the bottom of the viewport.'}
           {'The footer will move as the main element of the page grows.'}
@@ -118,7 +147,7 @@ return (
           <MadeWithLove />
         </Container>
       </footer> */}
-    </div>
+                              </div>
   );
 
 }
