@@ -1,4 +1,5 @@
 import React from "react"
+import { Form, TextArea } from 'semantic-ui-react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Grow, Link, Container } from "@material-ui/core"
 import logo from './backgroundUKRLP.png';
@@ -20,15 +21,6 @@ export interface MainAppPageProps {
 }
 
 const useStyles = makeStyles(theme => ({
-    // root: {
-    //   background: 'linear-gradient(0deg, #FE6B8B 30%, #FF8E53 90%)',
-    //   border: 0,
-    //   borderRadius: 0,
-    // //   boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    //   color: 'white',
-    //   height: '100vh',
-    //   padding: '0 0px',
-    // },
     root: {
         background: 'linear-gradient(0deg, #FE6B8B 30%, #FF8E53 90%)',
         display: 'flex',
@@ -40,6 +32,13 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(2),
       },
       footer: {
+        padding: theme.spacing(2),
+        marginTop: 'auto',
+        backgroundColor: 'white',
+      },
+      textareafield: {        
+        minHeight: '250',
+        minWidth: '250',
         padding: theme.spacing(2),
         marginTop: 'auto',
         backgroundColor: 'white',
@@ -58,6 +57,12 @@ const useStyles = makeStyles(theme => ({
     );
   }
 
+  const TextAreaComplain = () => (
+    <Form>
+      <TextArea placeholder='Tell us more' className="textareafield" />
+    </Form>
+  )
+
 const MainAppPage = (props: MainAppPageProps) => {
 const classes = useStyles();
 return (
@@ -67,6 +72,9 @@ return (
         <Typography variant="h2" component="h1" gutterBottom>
           Sticky footer
         </Typography>
+     
+          <TextAreaComplain></TextAreaComplain>
+ 
         <Typography variant="h5" component="h2" gutterBottom>
           {'Pin a footer to the bottom of the viewport.'}
           {'The footer will move as the main element of the page grows.'}
@@ -83,6 +91,9 @@ return (
   );
 
 }
+
+
+
 
 export default MainAppPage
 
