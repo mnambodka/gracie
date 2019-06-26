@@ -99,7 +99,7 @@ const useStyles = makeStyles(theme => ({
     )
 
   const TextAreaComplain = () => (
-    <Form>
+    <Form className="textareafield">
       <TextArea placeholder='Tell us more' className="textareafield" onChange={(event) => handleOnChange(event)} />
       <button onClick={handleSubmit}>Submit</button>
     </Form>

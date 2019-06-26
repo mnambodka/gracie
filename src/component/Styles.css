@@ -17,10 +17,10 @@
 }
 
 .textareafield {   
-    margin-top: 30px;  
+    margin-top: 20px;  
     min-Height: 250px;
     min-Width: 600px;
-    background-color: white;
+    /* background-color: white; */
   }
 
 .comboBox {    
