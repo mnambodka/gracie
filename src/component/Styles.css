@@ -16,9 +16,26 @@
     line-height: 1.428571429;
 }
 
-.textareafield {        
+.textareafield {   
+    margin-top: 20px;  
     min-Height: 250px;
     min-Width: 600px;
-    /* padding: spacing(2); */
-        background-color: white;
+    /* background-color: white; */
+  }
+
+.comboBox {    
+    min-Height: 30px;    
+    min-Width: 600px;  
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    background-color: white;
+  }
+
+  .title {    
+    margin-top: 20px;
+    min-Height: 10px;    
+    min-Width: 600px;  
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    /* font-size: 40px; */
+    background-color: white;
   }

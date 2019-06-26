@@ -14,6 +14,8 @@ import logo from './head_menu.png';
 import App from '../App';
 import * as emailjs from 'emailjs-com';
 import ImageUploader from 'react-images-upload';
+import ComboExample from "../component/ComboComponent";
+import TextField from '@material-ui/core/TextField';
 
 export const URL: string = "/bonz"
 
@@ -24,7 +26,7 @@ export interface MainAppPageProps {
 }
 
 var message: string = ""
-var picture: []
+var picture: File[]
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -34,7 +36,7 @@ const useStyles = makeStyles(theme => ({
         minHeight: '100vh',
       },
       main: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(3),
         marginBottom: theme.spacing(2),
       },
       footer: {
@@ -78,7 +80,8 @@ const useStyles = makeStyles(theme => ({
         from_name: 'danka',
         to_name: 'danielka',
         subject:'oursubject',
-        message_html: message  
+        message_html: message,
+        image_html: picture
     }
       emailjs.send('mailgun', 'template_RGafnIkF', templateParams, 'user_w9GAf3tp8aE7ephxoCIu4');
   }
@@ -86,13 +89,34 @@ const useStyles = makeStyles(theme => ({
   function handleOnChange($event) {
     message = $event.target.value;
   }
+  const TitleField = () => (
+  <form className={"title"} noValidate autoComplete="off">
+      <TextField className={"title"}
+        id="filled-full-width"
+        label="Title"
+        fullWidth
+        variant="filled"
+      />
+     </form>
+  )
+
+  const LocationField = () => (
+    <form className={"title"} noValidate autoComplete="off">
+        <TextField className={"title"}
+          id="filled-full-width"
+          label="Location (1st floor, etc.)"
+          fullWidth
+          variant="filled"
+        />
+       </form>
+    )
 
   function handleOnImageLoad($picture) {
     picture = $picture;
   }
 
   const TextAreaComplain = () => (
-    <Form>
+    <Form className="textareafield">
       <TextArea placeholder='Tell us more' className="textareafield" onChange={(event) => handleOnChange(event)} />
     </Form>
   )
@@ -104,6 +128,7 @@ const useStyles = makeStyles(theme => ({
         </div>
     )
   }
+
 
 const MainAppPage = (props: MainAppPageProps) => {
 const classes = useStyles();
@@ -122,7 +147,7 @@ return (
         <HeadPicture></HeadPicture>
       </Container>
       <Container component="main" className={classes.main} maxWidth="sm">
-        <Typography variant="h2" component="h1" gutterBottom>
+        <Typography variant="h3" component="h3" gutterBottom>
           Anlas Melden
         </Typography>     
           <TextAreaComplain></TextAreaComplain>  
@@ -133,7 +158,13 @@ return (
                 imgExtension={['.jpg', '.gif', '.png', '.gif']}
                 maxFileSize={5242880}
             />
-            <button onClick={handleSubmit}>Submit</button>   
+            <button onClick={handleSubmit}>Submit</button>
+      
+          <ComboExample/>
+          <TitleField/>
+          <LocationField/>
+          <TextAreaComplain/>
+ 
         <Typography variant="h5" component="h2" gutterBottom>
           {'Pin a footer to the bottom of the viewport.'}
           {'The footer will move as the main element of the page grows.'}
