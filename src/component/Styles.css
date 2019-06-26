@@ -17,14 +17,14 @@
 }
 
 .textareafield {   
-    margin-top: 20px;  
-    min-Height: 250px;
-    min-Width: 600px;
-    /* background-color: white; */
-  }
+  margin-top: 10px;  
+  min-Height: 200px;
+  min-Width: 600px;
+  /* background-color: white; */
+}
 
 .comboBox {    
-    min-Height: 30px;    
+    min-Height: 20px;    
     min-Width: 600px;  
     font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
@@ -32,10 +32,14 @@
   }
 
   .title {    
-    margin-top: 20px;
+    margin-top: 10px;
     min-Height: 10px;    
     min-Width: 600px;  
     font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     /* font-size: 40px; */
     background-color: white;
+  }
+
+  .imageLoader {
+    min-Width: 600px; 
   }
