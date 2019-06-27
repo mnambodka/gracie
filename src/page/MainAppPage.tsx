@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Component} from "react"
 import { Form, TextArea } from 'semantic-ui-react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Grow, Link, Container } from "@material-ui/core"
@@ -16,6 +16,7 @@ import * as emailjs from 'emailjs-com';
 import ImageUploader from 'react-images-upload';
 import ComboExample from "../component/ComboComponent";
 import TextField from '@material-ui/core/TextField';
+import { Checkbox } from 'semantic-ui-react'
 
 export const URL: string = "/bonz"
 
@@ -27,6 +28,7 @@ export interface MainAppPageProps {
 
 var message: string = ""
 var picture: File[]
+var sendAFeedback = false
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -84,6 +86,9 @@ function handleSubmit() {
     image_html: picture
   }
   emailjs.send('mailgun', 'template_RGafnIkF', templateParams, 'user_w9GAf3tp8aE7ephxoCIu4');
+  if (sendAFeedback){
+    console.log('sned me an emali')
+  }
 }
 
 function handleOnChange($event) {
@@ -96,6 +101,18 @@ const TitleField = () => (
       label="Title"
       fullWidth
       variant="filled"
+    />
+  </form>
+)
+
+var EmailField = () => (
+  <form className={"title"} noValidate autoComplete="off">
+    <TextField className={"title"}
+      id="filled-full-width"
+      label="Email address"
+      fullWidth
+      variant="filled"
+      disabled={!sendAFeedback}
     />
   </form>
 )
@@ -115,6 +132,14 @@ function handleOnImageLoad($picture) {
   picture = $picture;
 }
 
+function handleOnCheckBoxChange($change) {
+  if (sendAFeedback){
+    sendAFeedback = false
+  } else {
+    sendAFeedback = true
+  }
+}
+
 const TextAreaComplain = () => (
   <Form className="textareafield">
     <TextArea placeholder='Tell us more' className="textareafield" onChange={(event) => handleOnChange(event)} />
@@ -130,6 +155,8 @@ const ImageUpload = () => (
     onChange={(picture) => handleOnImageLoad(picture)}
     imgExtension={['.jpg', '.gif', '.png', '.gif']}
     maxFileSize={5242880}
+    withPreview={true}
+    singleImage={true}
   />
 )
 
@@ -147,7 +174,6 @@ const MainAppPage = (props: MainAppPageProps) => {
   const classes = useStyles();
 
   var data = picture
-
   const Example = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} />
 
   return (
@@ -169,6 +195,8 @@ const MainAppPage = (props: MainAppPageProps) => {
         <LocationField />
         <ImageUpload />
         <TextAreaComplain />
+        {/* <Checkbox label={{ children: 'Send me feedback' }} onChange={(event) => handleOnCheckBoxChange(event)}/>     
+        <EmailField/>  */}
 
         <button onClick={handleSubmit}>Submit</button>
 
