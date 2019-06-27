@@ -17,6 +17,7 @@ import ImageUploader from 'react-images-upload';
 import ComboExample from "../component/ComboComponent";
 import TextField from '@material-ui/core/TextField';
 import { Checkbox } from 'semantic-ui-react'
+import { FaExclamationCircle } from 'react-icons/fa'
 
 export const URL: string = "/bonz"
 
@@ -182,6 +183,7 @@ const MainAppPage = (props: MainAppPageProps) => {
       <div>
         <img width="100%" src={logo} alt="Logo" />
       </div>
+
       <Container component="head" maxWidth="sm">
         <HeadPicture></HeadPicture>
       </Container>

@@ -1,6 +1,6 @@
 import React from 'react';
 import MyPageRouter from '../component/MyRouter'
-import logo from './hackaton1.png';
+import logo from './hackaton.png';
 import FeedbackForm from '../component/FeedbackForm'
 import PropTypes from 'prop-types';
 import MainAppPage from '../page/MainAppPage';
