@@ -15,14 +15,13 @@ import logo_mobile from './head_menu_phone.png';
 import App from '../App';
 import * as emailjs from 'emailjs-com';
 import ImageUploader from 'react-images-upload';
-import ComboExample from "../component/ComboComponent";
 import TextField from '@material-ui/core/TextField';
 import { Checkbox } from 'semantic-ui-react'
 import { FaExclamationCircle } from 'react-icons/fa'
 import MediaQuery from 'react-responsive';
-import { Dropdown } from 'semantic-ui-react';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
+import { Dropdown } from 'semantic-ui-react'
 
 
 export const URL: string = "/bonz"
@@ -34,8 +33,17 @@ export interface MainAppPageProps {
 }
 
 var message: string = ""
+var title: string = ""
+var atLocation: string = ""
+var place: string = ""
 var picture: File[]
 var sendAFeedback = false
+
+const comboOptions = [
+  { key: 1, text: 'Feuerwehr Andernach', value: 1 },
+  { key: 2, text: 'Gutenberg Gymnasium Mainz', value: 2 },
+  { key: 3, text: 'KITA Sonnengruss', value: 3 },
+]
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,37 +73,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-
-function MadeWithLove() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {'Built with love by the '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI
-        </Link>
-      {' team.'}
-    </Typography>
-  );
-}
-
-function _arrayBufferToBase64(buffer) {
-  var binary = '';
-  var bytes = new Uint8Array(buffer);
-  var len = bytes.byteLength;
-  for (var i = 0; i < len; i++) {
-    binary += String.fromCharCode(bytes[i]);
-  }
-  return window.btoa(binary);
-}
-
 function handleSubmit() {
   var templateParams = {
     from_name: 'danka',
-    to_name: 'danielka',
-    subject: 'oursubject',
+    to_name: place + ' (' + atLocation + ')',
     message_html: message,
-    image_html: picture
+    title_html: title,
+    subject: atLocation
   }
   emailjs.send('mailgun', 'template_RGafnIkF', templateParams, 'user_w9GAf3tp8aE7ephxoCIu4');
   if (sendAFeedback){
@@ -106,6 +90,21 @@ function handleSubmit() {
 function handleOnChange($event) {
   message = $event.target.value;
 }
+
+function handleOnTitleChange($event) {
+  title = $event.target.value;
+}
+
+function handleOnLocationChange($event) {
+  console.log($event.target.value);
+  atLocation = $event.target.value;
+}
+
+function handleOnPlaceChange($event) {
+  console.log($event.target.innerText);
+  place = $event.target.innerText;
+}
+
 const TitleField = () => (
   <form className={"title"} noValidate autoComplete="off">
     <TextField className={"title"}
@@ -113,6 +112,7 @@ const TitleField = () => (
       label="Title"
       fullWidth
       variant="filled"
+      onChange={(event) => handleOnTitleChange(event)}
     />
   </form>
 )
@@ -136,6 +136,7 @@ const LocationField = () => (
       label="Location (1st floor, etc.)"
       fullWidth
       variant="filled"
+      onChange={(event) => handleOnLocationChange(event)}
     />
   </form>
 )
@@ -192,6 +193,10 @@ Send
   )
 }
 
+const DropdownExampleUncontrolled = () => (
+  <Dropdown className="comboBox" selection options={comboOptions} placeholder='My Location' onChange={(event) => handleOnPlaceChange(event)}/>
+)
+
 const DesktopLayout = () => (
   
   <div>
@@ -199,7 +204,7 @@ const DesktopLayout = () => (
       Anlass melden
     </Typography> */}
 
-    <ComboExample />
+    <DropdownExampleUncontrolled />
     <TitleField />
     <LocationField />
     <ImageUpload />
@@ -216,7 +221,7 @@ const options = [
 ]
 
 const ComboMobile = () => (
-  <Dropdown className="MPcomboBox" selection options={options} placeholder='My Location' />
+  <Dropdown className="MPcomboBox" selection options={options} placeholder='My Location' onChange={(event) => handleOnPlaceChange(event)}/>
 )
 
 const TitleFieldMobile = () => (
@@ -226,6 +231,7 @@ const TitleFieldMobile = () => (
       label="Title"
       fullWidth
       variant="filled"
+      onChange={(event) => handleOnTitleChange(event)}
     />
   </form>
 )
@@ -237,6 +243,7 @@ const LocationFieldMobile = () => (
       label="Location (1st floor, etc.)"
       fullWidth
       variant="filled"
+      onChange={(event) => handleOnLocationChange(event)}
     />
   </form>
 )
