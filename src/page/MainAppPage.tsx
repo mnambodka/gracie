@@ -75,7 +75,7 @@ const useStyles = makeStyles(theme => ({
 
 function handleSubmit() {
   var templateParams = {
-    from_name: 'danka',
+    from_name: 'Unfallkasse Rheinland Pfalz',
     to_name: place + ' (' + atLocation + ')',
     message_html: message,
     title_html: title,
