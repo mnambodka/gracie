@@ -25,7 +25,7 @@
 
 .comboBox {    
     min-Height: 20px;    
-    min-Width: 600px;  
+    min-Width: 75vh;  
     font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
     background-color: white;
@@ -34,7 +34,7 @@
   .title {    
     margin-top: 10px;
     min-Height: 10px;    
-    min-Width: 600px;  
+    min-Width: 75vh;  
     font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     /* font-size: 40px; */
     background-color: white;
@@ -43,3 +43,60 @@
   .imageLoader {
     min-Width: 600px; 
   }
+
+  .submmitButton {
+    min-Width: 100px;
+    min-Height: 30px;  
+    margin-top: 10px;
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    float: right;
+  }
+
+
+  .MPbuttonStyle {
+    position: absolute;
+    margin-top: 18px;
+    margin-left: 400px;
+    color: white;
+    background-color: transparent;
+    width: 50px;
+    border-color: transparent;
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 8px;
+}
+
+.MPbuttonTextStyle {
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 8px;
+    line-height: 1.428571429;
+}
+
+.MPtextareafield {   
+  margin-top: 5px;  
+  min-Height: 100px;
+  min-Width: 300px;
+  /* background-color: white; */
+}
+
+.MPcomboBox {    
+    min-Height: 15px;    
+    min-Width: 300px;  
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 10px;
+    background-color: white;
+  }
+
+  .MPtitle {    
+    margin-top: 5px;
+    min-Height: 5px;    
+    min-Width: 300px;  
+    font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    /* font-size: 40px; */
+    background-color: white;
+  }
+
+  .MPimageLoader {
+    min-Width: 300px; 
+  }
+
+

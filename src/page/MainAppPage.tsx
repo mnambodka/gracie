@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import logo from './head_menu.png';
+import logo_mobile from './head_menu.png';
 import App from '../App';
 import * as emailjs from 'emailjs-com';
 import ImageUploader from 'react-images-upload';
@@ -18,6 +19,8 @@ import ComboExample from "../component/ComboComponent";
 import TextField from '@material-ui/core/TextField';
 import { Checkbox } from 'semantic-ui-react'
 import { FaExclamationCircle } from 'react-icons/fa'
+import MediaQuery from 'react-responsive';
+import { Dropdown } from 'semantic-ui-react';
 
 export const URL: string = "/bonz"
 
@@ -170,6 +173,103 @@ const HeadPicture = (props: any) => {
   )
 }
 
+const DesktopLayout = () => (
+  
+  <div>
+    {/* <Typography variant="h4" component="h5" gutterBottom>
+      Anlass melden
+    </Typography> */}
+
+    <ComboExample />
+    <TitleField />
+    <LocationField />
+    <ImageUpload />
+    <TextAreaComplain />
+
+    <button className="submmitButton" onClick={handleSubmit}>Submit</button>
+  </div>
+)
+
+const options = [
+  { key: 1, text: 'Feuerwehr Andernach', value: 1 },
+  { key: 2, text: 'Gutenberg Gymnasium Mainz', value: 2 },
+  { key: 3, text: 'KITA Sonnengruss', value: 3 },
+]
+
+const ComboMobile = () => (
+  <Dropdown className="MPcomboBox" selection options={options} placeholder='My Location' />
+)
+
+const TitleFieldMobile = () => (
+  <form className={"MPtitle"} noValidate autoComplete="off">
+    <TextField className={"MPtitle"}
+      id="filled-full-width"
+      label="Title"
+      fullWidth
+      variant="filled"
+    />
+  </form>
+)
+
+const LocationFieldMobile = () => (
+  <form className={"MPtitle"} noValidate autoComplete="off">
+    <TextField className={"MPtitle"}
+      id="filled-full-width"
+      label="Location (1st floor, etc.)"
+      fullWidth
+      variant="filled"
+    />
+  </form>
+)
+
+const ImageUploadMobile = () => (
+
+  <ImageUploader
+    className='MPimageLoader'
+    withIcon={true}
+    buttonText='Choose images'
+    onChange={(picture) => handleOnImageLoad(picture)}
+    imgExtension={['.jpg', '.gif', '.png', '.gif']}
+    maxFileSize={5242880}
+  />
+)
+
+const TextAreaComplainMobile = () => (
+  <Form className="MPtextareafield">
+    <TextArea placeholder='Tell us more' className="MPtextareafield" onChange={(event) => handleOnChange(event)} />
+  </Form>
+)
+
+const HeadPictureMobile = (props: any) => {
+  return (
+    <div>
+      <img width="100%" src={logo_mobile} alt="Logo" />
+    </div>
+  )
+}
+
+const MobilLayout = () => (
+  
+  <div>
+    <ComboMobile />
+    <TitleFieldMobile />
+    <LocationFieldMobile />
+    <ImageUploadMobile />
+    <TextAreaComplainMobile />
+    <button className="submmitButton" onClick={handleSubmit}>Submit</button>
+  </div>
+)
+
+const ExampleLayout = () => (
+  <div>
+    <MediaQuery query="(min-device-width: 1224px)">
+      <DesktopLayout/>
+    </MediaQuery>
+    <MediaQuery query="(max-device-width: 1224px)">
+      <MobilLayout/>
+    </MediaQuery>
+  </div>
+);
 
 const MainAppPage = (props: MainAppPageProps) => {
   const classes = useStyles();
@@ -180,15 +280,18 @@ const MainAppPage = (props: MainAppPageProps) => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <div>
-        <img width="100%" src={logo} alt="Logo" />
-      </div>
 
-      <Container component="head" maxWidth="sm">
-        <HeadPicture></HeadPicture>
-      </Container>
+      <MediaQuery query="(min-device-width: 1224px)">
+      <HeadPicture/>
+    </MediaQuery>
+    <MediaQuery query="(max-device-width: 1224px)">
+    <HeadPictureMobile/>
+    </MediaQuery>
+
       <Container component="main" className={classes.main} maxWidth="md">
-        <Typography variant="h4" component="h5" gutterBottom>
+      <ExampleLayout/>
+
+        {/* <Typography variant="h4" component="h5" gutterBottom>
           Anlass melden
         </Typography>
 
@@ -200,7 +303,7 @@ const MainAppPage = (props: MainAppPageProps) => {
         {/* <Checkbox label={{ children: 'Send me feedback' }} onChange={(event) => handleOnCheckBoxChange(event)}/>     
         <EmailField/>  */}
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>Submit</button> */}
 
       </Container>
     </div>

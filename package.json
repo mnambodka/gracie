@@ -31,6 +31,7 @@
     "react-i18next": "^10.11.0",
     "react-icons": "^3.7.0",
     "react-images-upload": "^1.2.7",
+    "react-responsive": "^7.0.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
