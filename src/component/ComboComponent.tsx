@@ -8,6 +8,7 @@ const options = [
     { key: 1, text: 'Feuerwehr Andernach', value: 1 },
     { key: 2, text: 'Gutenberg Gymnasium Mainz', value: 2 },
     { key: 3, text: 'KITA Sonnengruss', value: 3 },
+    { key: 4, text: 'Tabacka', value: 4 },
   ]
   
   const DropdownExampleUncontrolled = () => (
