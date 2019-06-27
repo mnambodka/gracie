@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import logo from './head_menu.png';
-import logo_mobile from './head_menu.png';
+import logo_mobile from './head_menu_phone.png';
 import App from '../App';
 import * as emailjs from 'emailjs-com';
 import ImageUploader from 'react-images-upload';
@@ -21,6 +21,9 @@ import { Checkbox } from 'semantic-ui-react'
 import { FaExclamationCircle } from 'react-icons/fa'
 import MediaQuery from 'react-responsive';
 import { Dropdown } from 'semantic-ui-react';
+import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
+
 
 export const URL: string = "/bonz"
 
@@ -57,7 +60,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: 'auto',
     backgroundColor: 'white',
   },
+  rightIcon: {
+    marginLeft: theme.spacing(1),
+  },
 }));
+
+
 
 function MadeWithLove() {
   return (
@@ -173,6 +181,17 @@ const HeadPicture = (props: any) => {
   )
 }
 
+const SendButtoMobile = (props: any) => {
+  return (
+    <div>
+<Button className="submmitButton" variant="contained" color="primary" onClick={props.handleSubmit}>
+Send
+<Icon className="submmitButton">send</Icon>
+</Button>
+</div>
+  )
+}
+
 const DesktopLayout = () => (
   
   <div>
@@ -185,8 +204,8 @@ const DesktopLayout = () => (
     <LocationField />
     <ImageUpload />
     <TextAreaComplain />
-
-    <button className="submmitButton" onClick={handleSubmit}>Submit</button>
+    {/* <SendButtoMobile/> */}
+    {/* <button className="submmitButton" onClick={handleSubmit}>Submit</button> */}
   </div>
 )
 
@@ -231,6 +250,8 @@ const ImageUploadMobile = () => (
     onChange={(picture) => handleOnImageLoad(picture)}
     imgExtension={['.jpg', '.gif', '.png', '.gif']}
     maxFileSize={5242880}
+    withPreview={true}
+    singleImage={true}
   />
 )
 
@@ -256,7 +277,7 @@ const MobilLayout = () => (
     <LocationFieldMobile />
     <ImageUploadMobile />
     <TextAreaComplainMobile />
-    <button className="submmitButton" onClick={handleSubmit}>Submit</button>
+    
   </div>
 )
 
@@ -290,21 +311,15 @@ const MainAppPage = (props: MainAppPageProps) => {
 
       <Container component="main" className={classes.main} maxWidth="md">
       <ExampleLayout/>
+      
+      <div>
 
-        {/* <Typography variant="h4" component="h5" gutterBottom>
-          Anlass melden
-        </Typography>
-
-        <ComboExample />
-        <TitleField />
-        <LocationField />
-        <ImageUpload />
-        <TextAreaComplain />
-        {/* <Checkbox label={{ children: 'Send me feedback' }} onChange={(event) => handleOnCheckBoxChange(event)}/>     
-        <EmailField/>  */}
-
-        <button onClick={handleSubmit}>Submit</button> */}
-
+      <Button className="submmitButton" variant="contained" color="primary" onClick={handleSubmit}>
+        Send
+        <Icon className={classes.rightIcon}>send</Icon>
+      </Button>
+    </div>
+      {/* <button className="submmitButton" onClick={handleSubmit}>Submit</button> */}
       </Container>
     </div>
   );

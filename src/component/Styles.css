@@ -20,6 +20,7 @@
   margin-top: 10px;  
   min-Height: 200px;
   min-Width: 600px;
+  margin-bottom: 10px;
   /* background-color: white; */
 }
 
@@ -75,18 +76,19 @@
   margin-top: 5px;  
   min-Height: 100px;
   min-Width: 300px;
+  margin-bottom: 10px;
   /* background-color: white; */
 }
 
 .MPcomboBox {    
-    min-Height: 15px;    
+    min-Height: 20px;    
     min-Width: 300px;  
     font-family: "open-sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 10px;
+    font-size: 15px;
     background-color: white;
   }
 
-  .MPtitle {    
+.MPtitle {    
     margin-top: 5px;
     min-Height: 5px;    
     min-Width: 300px;  
