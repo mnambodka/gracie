@@ -43,6 +43,7 @@ const comboOptions = [
   { key: 1, text: 'Feuerwehr Andernach', value: 1 },
   { key: 2, text: 'Gutenberg Gymnasium Mainz', value: 2 },
   { key: 3, text: 'KITA Sonnengruss', value: 3 },
+  { key: 4, text: 'Tabacka', value: 4 }
 ]
 
 const useStyles = makeStyles(theme => ({
@@ -166,7 +167,7 @@ const ImageUpload = () => (
     withIcon={true}
     buttonText='Choose images'
     onChange={(picture) => handleOnImageLoad(picture)}
-    imgExtension={['.jpg', '.gif', '.png', '.gif']}
+    imgExtension={['.jpg',  '.gif', '.png', '.gif']}
     maxFileSize={5242880}
     withPreview={true}
     singleImage={true}
@@ -218,6 +219,7 @@ const options = [
   { key: 1, text: 'Feuerwehr Andernach', value: 1 },
   { key: 2, text: 'Gutenberg Gymnasium Mainz', value: 2 },
   { key: 3, text: 'KITA Sonnengruss', value: 3 },
+  { key: 4, text: 'Tabacka', value: 4 }
 ]
 
 const ComboMobile = () => (
